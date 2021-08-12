@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "declaration": true,
+    "outDir": "./dist",
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
+
+/*
+tsc --module commonjs  --target "es2015" --outDir "../dist" --declaration true
+*/

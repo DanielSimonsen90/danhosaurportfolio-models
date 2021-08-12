@@ -1,0 +1,17 @@
+declare type ProjectOptionASPNetCore = 'ASP.Net Core';
+declare type ProjectOptionConsole = 'Console';
+declare type ProjectOptionLibrary = 'Library';
+declare type ProjectOptionNodejs = 'Node.js';
+declare type ProjectOptionWebsite = 'Website';
+declare type ProjectOptionWindowsForms = 'Windows Forms';
+declare type ProjectOptionWPF = 'WPF';
+declare type ProjectOptionATmega = 'ATmega168';
+export declare type ProjectTypeCSharp = ProjectOptionASPNetCore | ProjectOptionConsole | ProjectOptionLibrary | ProjectOptionWindowsForms | ProjectOptionWPF;
+export declare type ProjectTypeJavaScript = ProjectOptionNodejs | ProjectOptionWebsite | ProjectOptionConsole;
+export declare type ProjectTypeTypeScript = ProjectOptionNodejs | ProjectOptionWebsite | ProjectOptionLibrary;
+export declare type ProjectTypeWebsite = ProjectOptionNodejs | ProjectOptionWebsite | ProjectOptionASPNetCore;
+export declare type ProjectTypeVueJS = ProjectOptionWebsite;
+export declare type ProjectTypeEJS = ProjectOptionWebsite;
+export declare type ProjectTypeXML = ProjectTypeCSharp;
+export declare type ProjectTypeC = ProjectOptionATmega;
+export {};
