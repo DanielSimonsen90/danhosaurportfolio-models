@@ -1,6 +1,7 @@
 import { 
     ProjectTypeC, ProjectTypeCSharp, 
     ProjectTypeEJS, ProjectTypeJavaScript, 
+    ProjectTypeReactJS, 
     ProjectTypeTypeScript, ProjectTypeVueJS, 
     ProjectTypeWebsite, ProjectTypeXML 
 } from './ProjectOptions';
@@ -11,6 +12,7 @@ export interface IProgrammingLanguage {
     "JavaScript": ProjectTypeJavaScript,
     "TypeScript": ProjectTypeTypeScript,
     "Website": ProjectTypeWebsite,
+    "React.js": ProjectTypeReactJS,
     "Vue.js": ProjectTypeVueJS,
     "EJS": ProjectTypeEJS,
     "XML": ProjectTypeXML,

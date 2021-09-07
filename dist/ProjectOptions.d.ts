@@ -10,6 +10,7 @@ export declare type ProjectTypeCSharp = ProjectOptionASPNetCore | ProjectOptionC
 export declare type ProjectTypeJavaScript = ProjectOptionNodejs | ProjectOptionWebsite | ProjectOptionConsole;
 export declare type ProjectTypeTypeScript = ProjectOptionNodejs | ProjectOptionWebsite | ProjectOptionLibrary;
 export declare type ProjectTypeWebsite = ProjectOptionNodejs | ProjectOptionWebsite | ProjectOptionASPNetCore;
+export declare type ProjectTypeReactJS = ProjectOptionWebsite;
 export declare type ProjectTypeVueJS = ProjectOptionWebsite;
 export declare type ProjectTypeEJS = ProjectOptionWebsite;
 export declare type ProjectTypeXML = ProjectTypeCSharp;
