@@ -1,13 +1,17 @@
 {
   "name": "danhosaurportfolio-models",
   "type": "commonjs",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Classes used for my portfolio website.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Daniel Simonsen",
   "license": "ISC",
   "scripts": {
-    "build": "tsc --module commonjs --target es2015 --outDir ./dist --declaration true"
+    "build": "tsc --module commonjs --target es2015 --outDir ./dist --declaration true --watch true"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "typescript": "^4.5.4"
   }
 }

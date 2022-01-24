@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DanhoDate = void 0;
 class DanhoDate {
     constructor(year, month, day) {
         this.year = year;
@@ -30,4 +31,5 @@ class DanhoDate {
         };
     }
 }
+exports.DanhoDate = DanhoDate;
 exports.default = DanhoDate;

@@ -16,11 +16,12 @@ declare type ProgrammingLanguage = keyof IProgrammingLanguage;
 export { ProgrammingLanguage };
 import Collab from './Utils/Collab';
 import DanhoDate from './Utils/DanhoDate';
-interface IDescription {
+import MongoItem from './Utils/MongoItem';
+export interface IDescription {
     Dansk: string[];
     English: string[];
 }
-interface IProject<Language extends keyof IProgrammingLanguage> {
+export interface IProject<Language extends keyof IProgrammingLanguage> {
     language: Language;
     projectType: IProgrammingLanguage[Language];
     createdAt: DanhoDate;
@@ -32,9 +33,8 @@ interface IProject<Language extends keyof IProgrammingLanguage> {
     spareTime?: boolean;
     collab?: Collab;
 }
-export default class Project<Language extends keyof IProgrammingLanguage = keyof IProgrammingLanguage> {
+export declare class Project<Language extends keyof IProgrammingLanguage = keyof IProgrammingLanguage> extends MongoItem {
     constructor(name: string, props: IProject<Language>);
-    _id: number;
     name: string;
     description: IDescription;
     language: keyof IProgrammingLanguage;
@@ -47,3 +47,4 @@ export default class Project<Language extends keyof IProgrammingLanguage = keyof
     collab: Collab;
     toString(): string;
 }
+export default Project;

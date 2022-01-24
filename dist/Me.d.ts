@@ -3,8 +3,9 @@ import LocationCollection from "./Collection/LocationCollection";
 import ProjectCollection from './Collection/ProjectCollection';
 import PlanLocation from "./Utils/PlanLocation";
 import IContact from "./IContact";
-export default class Me {
-    constructor(locationCollection: LocationCollection, contact: IContact, projects: ProjectCollection);
+import API from "./Utils/API";
+export declare class Me {
+    constructor(locationCollection: LocationCollection, contact: IContact, spareTime: Array<Item>, api: API);
     name: string;
     age: number;
     codingFor: number;
@@ -15,3 +16,4 @@ export default class Me {
     toString(): string;
     private getYear;
 }
+export default Me;

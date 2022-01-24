@@ -1,19 +1,15 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "esnext",
+    "target": "es2018",
     "declaration": true,
-    "outDir": "./dist",
+    "rootDir": "src",
+    "outDir": "dist",
+    "resolveJsonModule": true,
     "watch": true
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  }
 }
 
 /*
-tsc --module commonjs  --target "es2015" --outDir "../dist" --declaration true
+tsc --module commonjs  --target "es2015" --outDir "../dist" --declaration true --watch true
 */

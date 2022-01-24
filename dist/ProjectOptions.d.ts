@@ -15,4 +15,5 @@ export declare type ProjectTypeVueJS = ProjectOptionWebsite;
 export declare type ProjectTypeEJS = ProjectOptionWebsite;
 export declare type ProjectTypeXML = ProjectTypeCSharp;
 export declare type ProjectTypeC = ProjectOptionATmega;
+export declare type ProjectTypePython = ProjectOptionConsole;
 export {};

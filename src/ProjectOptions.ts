@@ -22,3 +22,4 @@ export type ProjectTypeEJS = ProjectOptionWebsite;
 
 export type ProjectTypeXML = ProjectTypeCSharp;
 export type ProjectTypeC = ProjectOptionATmega;
+export type ProjectTypePython = ProjectOptionConsole;

@@ -1,4 +1,4 @@
-export default class Item {
+export class Item {
     constructor(name: string, description: string) {
         this.name = name;
         this.description = description;
@@ -11,3 +11,4 @@ export default class Item {
         return this.name;
     }
 }
+export default Item;

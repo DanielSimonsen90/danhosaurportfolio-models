@@ -1,7 +1,8 @@
 import PlanLocation from "./Utils/PlanLocation";
 import DanhoDate from "./Utils/DanhoDate";
+import { TimeSpan } from 'danholibraryjs';
 
-export default class ScheduleItem {
+export class ScheduleItem {
     constructor(course: PlanLocation, start: DanhoDate, end: DanhoDate) {
         this._course = course;
         this._start = start;
@@ -15,4 +16,6 @@ export default class ScheduleItem {
     public get start() { return this._start }
     public get end() { return this._end }
     public get course() { return this._course }
+    public get duration() { return new TimeSpan(this.start.getTime(), this.end.getTime()) }
 }
+export default ScheduleItem;

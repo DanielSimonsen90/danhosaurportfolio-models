@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Project = void 0;
 const Collab_1 = require("./Utils/Collab");
-class Project {
+const MongoItem_1 = require("./Utils/MongoItem");
+class Project extends MongoItem_1.default {
     constructor(name, props) {
+        super();
         const { language, projectType, createdAt, description, display, image, hasLink, baseLink, spareTime, collab } = props;
         this.name = name;
         this.language = language;
@@ -22,4 +25,5 @@ class Project {
         return this.name;
     }
 }
+exports.Project = Project;
 exports.default = Project;

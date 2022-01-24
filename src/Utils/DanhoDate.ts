@@ -1,4 +1,4 @@
-export default class DanhoDate {
+export class DanhoDate {
     constructor(year: number, month: number, day: number) {
         this.year = year;
         this.month = month;
@@ -35,3 +35,4 @@ export default class DanhoDate {
         }
     }
 }
+export default DanhoDate;

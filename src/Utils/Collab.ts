@@ -1,4 +1,4 @@
-export default class Collab {
+export class Collab {
     constructor(github: string, repo: string) {
         this.github = github;
         this.repo = repo;
@@ -13,3 +13,4 @@ export default class Collab {
         return `${this.githubLink}/${this.repo}`;
     }
 }
+export default Collab;

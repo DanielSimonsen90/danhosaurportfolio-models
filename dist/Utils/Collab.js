@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Collab = void 0;
 class Collab {
     constructor(github, repo) {
         this.github = github;
@@ -12,4 +13,5 @@ class Collab {
         return `${this.githubLink}/${this.repo}`;
     }
 }
+exports.Collab = Collab;
 exports.default = Collab;

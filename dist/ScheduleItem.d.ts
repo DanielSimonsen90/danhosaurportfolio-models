@@ -1,6 +1,7 @@
 import PlanLocation from "./Utils/PlanLocation";
 import DanhoDate from "./Utils/DanhoDate";
-export default class ScheduleItem {
+import { TimeSpan } from 'danholibraryjs';
+export declare class ScheduleItem {
     constructor(course: PlanLocation, start: DanhoDate, end: DanhoDate);
     private _start;
     private _end;
@@ -8,4 +9,6 @@ export default class ScheduleItem {
     get start(): DanhoDate;
     get end(): DanhoDate;
     get course(): PlanLocation;
+    get duration(): TimeSpan;
 }
+export default ScheduleItem;

@@ -1,16 +1,18 @@
-import Project from "./Project";
 import Item from "./Utils/Item";
 import LocationCollection from "./Collection/LocationCollection";
 import ProjectCollection from './Collection/ProjectCollection';
 import PlanLocation from "./Utils/PlanLocation";
 import IContact from "./IContact";
 import DanhoDate from './Utils/DanhoDate';
+import API from "./Utils/API";
+import { TimeSpan } from "danholibraryjs";
 
-export default class Me {
-    constructor(locationCollection: LocationCollection, contact: IContact, projects: ProjectCollection) {
+export class Me {
+    constructor(locationCollection: LocationCollection, contact: IContact, spareTime: Array<Item>, api: API) {
         this.occupation = locationCollection.whereAmI();
         this.contact = contact;
-        this.projects = projects;
+        this.projects = new ProjectCollection(contact.github, api);
+        this.spareTime = spareTime;
     }
     
     public name = 'Daniel Simonsen';
@@ -26,6 +28,7 @@ export default class Me {
     }
 
     private getYear(date: DanhoDate) {
-        return new Date().getFullYear() - date.year;
+        return new TimeSpan(new Date(), new Date(date.getTime())).years;
     }
 }
+export default Me;
