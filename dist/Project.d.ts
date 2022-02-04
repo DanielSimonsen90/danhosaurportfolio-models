@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { ProjectTypeC, ProjectTypeCSharp, ProjectTypeEJS, ProjectTypeJavaScript, ProjectTypeReactJS, ProjectTypeTypeScript, ProjectTypeVueJS, ProjectTypeWebsite, ProjectTypeXML } from './ProjectOptions';
 export interface IProgrammingLanguage {
     "C#": ProjectTypeCSharp;
@@ -27,11 +26,12 @@ export interface IProject<Language extends keyof IProgrammingLanguage> {
     createdAt: DanhoDate;
     description: IDescription;
     display?: boolean;
-    image?: Buffer;
+    image?: string;
     hasLink?: boolean;
     baseLink?: string;
     spareTime?: boolean;
     collab?: Collab;
+    githubUsername: string;
 }
 export declare class Project<Language extends keyof IProgrammingLanguage = keyof IProgrammingLanguage> extends MongoItem {
     constructor(name: string, props: IProject<Language>);
@@ -41,10 +41,12 @@ export declare class Project<Language extends keyof IProgrammingLanguage = keyof
     projectType: IProgrammingLanguage[keyof IProgrammingLanguage];
     createdAt: DanhoDate;
     link: string;
-    image: Buffer;
+    baseLink: string;
+    image: string;
     display: boolean;
     spareTime: boolean;
     collab: Collab;
+    private setLink;
     toString(): string;
 }
 export default Project;

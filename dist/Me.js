@@ -11,7 +11,7 @@ class Me {
         this.codingFor = this.getYear(new DanhoDate_1.default(2018, 8, 8));
         this.occupation = locationCollection.whereAmI();
         this.contact = contact;
-        this.projects = new ProjectCollection_1.default(contact.github, api);
+        this.projects = new ProjectCollection_1.default(api);
         this.spareTime = spareTime;
     }
     toString() {

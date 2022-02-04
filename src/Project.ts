@@ -1,3 +1,4 @@
+import LocationCollection from './Collection/LocationCollection';
 import { 
     ProjectTypeC, ProjectTypeCSharp, 
     ProjectTypeEJS, ProjectTypeJavaScript, 
@@ -37,17 +38,25 @@ export interface IProject<Language extends keyof IProgrammingLanguage> {
     description: IDescription,
     display?: boolean,
 
-    image?: Buffer,
+    image?: string,
     hasLink?: boolean,
     baseLink?: string,
     spareTime?: boolean,
-    collab?: Collab
+    collab?: Collab,
+
+    githubUsername: string
 }
 
 export class Project<Language extends keyof IProgrammingLanguage = keyof IProgrammingLanguage> extends MongoItem {
     constructor(name: string, props: IProject<Language>) {
         super();
-        const { language, projectType, createdAt, description, display, image, hasLink, baseLink, spareTime, collab } = props;
+        const { 
+            language, projectType, createdAt, 
+            description, display, image, 
+            hasLink, baseLink, 
+            spareTime, collab,
+            githubUsername
+        } = props;
         
         this.name = name;
         this.language = language;
@@ -57,7 +66,9 @@ export class Project<Language extends keyof IProgrammingLanguage = keyof IProgra
         this.description = description;
         this.display = display === false ? false : true;
         
-        this.link = hasLink === false ? "No link" : baseLink !== undefined && baseLink !== null ? baseLink : "";
+        this.baseLink = baseLink;
+
+        this.link = this.setLink(hasLink, githubUsername);
         this.spareTime = spareTime;
 
         this.collab = collab && new Collab(collab.github, collab.repo);
@@ -72,10 +83,33 @@ export class Project<Language extends keyof IProgrammingLanguage = keyof IProgra
     public projectType: IProgrammingLanguage[keyof IProgrammingLanguage];
     public createdAt: DanhoDate;
     public link: string;
-    public image: Buffer;
+    public baseLink: string;
+    public image: string;
     public display: boolean;
     public spareTime: boolean;
     public collab: Collab;
+
+    private setLink(hasLink: boolean, githubUsername) {
+        if (!hasLink) return "No link";
+
+        const githubLink = `https://github.com/${githubUsername}`;
+
+        if (this.spareTime) return `${githubLink}/${this.name}`;
+        
+        const module = new LocationCollection().getLocationFrom(this.createdAt.getTime());
+        const repo = (module as string).includes("Hovedforløb") ? 'Education' : 'SKP';
+        const branch = repo == 'Education' ? 'master' : 'main';
+        const folder = (
+            repo === 'Education' ? module.toString().replace(/ø/g, '%C3%B8') + "/" : 
+            repo === 'SKP' ? `Round ${module.toString().split(' ')[1]}/` : ""
+            ) + this.baseLink ? `${this.baseLink}/` : "";
+            
+        console.log({
+            project: this,
+            module, folder, repo, baseLink: this.baseLink
+        });
+        return `${githubLink}/${repo}/tree/${branch}/${folder}${this.name}/`.replace(/ +/g, "%20");
+    }
 
     public toString() {
         return this.name;

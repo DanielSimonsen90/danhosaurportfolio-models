@@ -11,7 +11,7 @@ export class Me {
     constructor(locationCollection: LocationCollection, contact: IContact, spareTime: Array<Item>, api: API) {
         this.occupation = locationCollection.whereAmI();
         this.contact = contact;
-        this.projects = new ProjectCollection(contact.github, api);
+        this.projects = new ProjectCollection(api);
         this.spareTime = spareTime;
     }
     
