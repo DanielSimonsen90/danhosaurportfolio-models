@@ -1,3 +1,4 @@
+import { DanhoDate } from "danhosaurportfolio-models";
 import Project from "../Project";
 import API from "../Utils/API";
 import PlanLocation from "../Utils/PlanLocation";
@@ -20,6 +21,12 @@ export class ProjectCollection extends Array<Project> {
             result.set(itemLocation, result.has(itemLocation) ? [...result.get(itemLocation), item] : [item]);
         }
         return result;
+    }
+    public before(date: DanhoDate | Date) {
+        return this.filter(p => p.createdAt.getTime() < date.getTime());
+    }    
+    public after(date: DanhoDate | Date) {
+        return this.filter(p => p.createdAt.getTime() > date.getTime());
     }
 
     public async fetchProjects() {

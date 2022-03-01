@@ -32,13 +32,13 @@ class Project extends MongoItem_1.default {
         const module = new LocationCollection_1.default().getLocationFrom(this.createdAt.getTime());
         const repo = module.includes("Hovedforløb") ? 'Education' : 'SKP';
         const branch = repo == 'Education' ? 'master' : 'main';
-        const folder = (repo === 'Education' ? module.toString().replace(/ø/g, '%C3%B8') + "/" :
+        const folder = (repo === 'Education' ? module.toString().replaceAll('ø', '%C3%B8') + "/" :
             repo === 'SKP' ? `Round ${module.toString().split(' ')[1]}/` : "") + this.baseLink ? `${this.baseLink}/` : "";
         console.log({
             project: this,
             module, folder, repo, baseLink: this.baseLink
         });
-        return `${githubLink}/${repo}/tree/${branch}/${folder}${this.name}/`.replace(/ +/g, "%20");
+        return `${githubLink}/${repo}/tree/${branch}/${folder}${this.name}/`.replaceAll(' ', "%20");
     }
     toString() {
         return this.name;

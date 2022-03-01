@@ -25,6 +25,12 @@ class ProjectCollection extends Array {
         }
         return result;
     }
+    before(date) {
+        return this.filter(p => p.createdAt.getTime() < date.getTime());
+    }
+    after(date) {
+        return this.filter(p => p.createdAt.getTime() > date.getTime());
+    }
     fetchProjects() {
         return __awaiter(this, void 0, void 0, function* () {
             return this._api.get('projects', null, () => []).then(arr => {

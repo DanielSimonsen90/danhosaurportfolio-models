@@ -100,7 +100,7 @@ export class Project<Language extends keyof IProgrammingLanguage = keyof IProgra
         const repo = (module as string).includes("Hovedforløb") ? 'Education' : 'SKP';
         const branch = repo == 'Education' ? 'master' : 'main';
         const folder = (
-            repo === 'Education' ? module.toString().replace(/ø/g, '%C3%B8') + "/" : 
+            repo === 'Education' ? module.toString().replaceAll('ø', '%C3%B8') + "/" : 
             repo === 'SKP' ? `Round ${module.toString().split(' ')[1]}/` : ""
             ) + this.baseLink ? `${this.baseLink}/` : "";
             
@@ -108,7 +108,7 @@ export class Project<Language extends keyof IProgrammingLanguage = keyof IProgra
             project: this,
             module, folder, repo, baseLink: this.baseLink
         });
-        return `${githubLink}/${repo}/tree/${branch}/${folder}${this.name}/`.replace(/ +/g, "%20");
+        return `${githubLink}/${repo}/tree/${branch}/${folder}${this.name}/`.replaceAll(' ', "%20");
     }
 
     public toString() {
