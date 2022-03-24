@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "lib": ["ESNext"],
     "target": "esnext",
     "declaration": true,
     "rootDir": "src",
@@ -9,7 +10,3 @@
     "watch": true
   }
 }
-
-/*
-tsc --module commonjs  --target "es2015" --outDir "../dist" --declaration true --watch true
-*/
