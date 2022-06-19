@@ -34,10 +34,10 @@ class Project extends MongoItem_1.default {
         const branch = repo == 'Education' ? 'master' : 'main';
         const folder = (repo === 'Education' ? module.toString().replaceAll('ø', '%C3%B8') + "/" :
             repo === 'SKP' ? `Round ${module.toString().split(' ')[1]}/` : "") + this.baseLink ? `${this.baseLink}/` : "";
-        // console.log({
-        //     project: this,
-        //     module, folder, repo, baseLink: this.baseLink
-        // });
+        console.log({
+            project: this,
+            module, folder, repo, baseLink: this.baseLink
+        });
         return `${githubLink}/${repo}/tree/${branch}/${folder}${this.name}/`.replaceAll(' ', "%20");
     }
     toString() {

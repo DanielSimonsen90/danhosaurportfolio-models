@@ -1,4 +1,4 @@
-import { DanhoDate } from "danhosaurportfolio-models";
+import { DanhoDate } from "../Utils/DanhoDate";
 import Project from "../Project";
 import API from "../Utils/API";
 import PlanLocation from "../Utils/PlanLocation";
