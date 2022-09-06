@@ -36,8 +36,7 @@ export class API {
         const { year, month, day } = item.createdAt;
         let result = new Project(item.name, {
             ...item,
-            createdAt: new DanhoDate(year, month, day),
-            githubUsername: this.githubUsername
+            createdAt: new DanhoDate(year, month, day)
         });
         result.link = item.link ?? (item.link != 'No link' && item.link);
         result._id = item._id;

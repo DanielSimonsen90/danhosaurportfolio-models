@@ -27,11 +27,9 @@ export interface IProject<Language extends keyof IProgrammingLanguage> {
     description: IDescription;
     display?: boolean;
     image?: string;
-    hasLink?: boolean;
-    baseLink?: string;
+    link?: string;
     spareTime?: boolean;
     collab?: Collab;
-    githubUsername: string;
 }
 export declare class Project<Language extends keyof IProgrammingLanguage = keyof IProgrammingLanguage> extends MongoItem {
     constructor(name: string, props: IProject<Language>);
@@ -41,12 +39,10 @@ export declare class Project<Language extends keyof IProgrammingLanguage = keyof
     projectType: IProgrammingLanguage[keyof IProgrammingLanguage];
     createdAt: DanhoDate;
     link: string;
-    baseLink: string;
     image: string;
     display: boolean;
     spareTime: boolean;
     collab: Collab;
-    private setLink;
     toString(): string;
 }
 export default Project;

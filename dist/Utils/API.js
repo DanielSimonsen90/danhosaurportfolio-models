@@ -40,7 +40,7 @@ class API {
     _convertProject(item) {
         var _a;
         const { year, month, day } = item.createdAt;
-        let result = new Project_1.default(item.name, Object.assign(Object.assign({}, item), { createdAt: new DanhoDate_1.default(year, month, day), githubUsername: this.githubUsername }));
+        let result = new Project_1.default(item.name, Object.assign(Object.assign({}, item), { createdAt: new DanhoDate_1.default(year, month, day) }));
         result.link = (_a = item.link) !== null && _a !== void 0 ? _a : (item.link != 'No link' && item.link);
         result._id = item._id;
         result.image = item.image;

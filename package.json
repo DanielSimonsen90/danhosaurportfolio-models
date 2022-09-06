@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "danholibraryjs": "github:danielsimonsen90/danholibraryjs",
     "typescript": "^4.5.4"
   }
 }
